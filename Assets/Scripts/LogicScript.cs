@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class LogicScript : MonoBehaviour
 {
     public int playerScore;
     public TextMeshProUGUI scoreText;
+    
 
     [ContextMenu("Increase Score")]
     public void addScore()
@@ -19,4 +21,8 @@ public class LogicScript : MonoBehaviour
 
     }
 
+    public void restartGame()
+     {
+    		SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+    	}
 }
