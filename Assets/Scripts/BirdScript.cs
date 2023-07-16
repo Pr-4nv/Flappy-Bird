@@ -7,13 +7,7 @@ public class BirdScript : MonoBehaviour
 
 public Rigidbody2D rb;
 public float upSpeed;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+public CollisionManager collision;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +18,11 @@ public float upSpeed;
             rb.velocity = Vector2.up * upSpeed;
         }
         
+        if(collision.isGameOver == true)
+        {
+            upSpeed = 0;
+        }
     }
 
+   
 }

@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PipeMovement : MonoBehaviour
 {
     
-    private float moveSpeed = 6;
+    public float moveSpeed = 6;
     public float deadZone = -45;
+    private GameObject Bird;
+    public CollisionManager collisionManager;
     
-    
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        collisionManager = GameObject.FindGameObjectWithTag("Bird").GetComponent<CollisionManager>();
     }
-
+      
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +25,11 @@ public class PipeMovement : MonoBehaviour
         if(transform.position.x < deadZone)
         {
             Destroy(gameObject);
+        }
+
+        if(collisionManager.isGameOver == true)
+        {
+            moveSpeed = 0;
         }
     }
 }

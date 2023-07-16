@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Logic
+  - Tree
+  - Bird
+  - GameOver
   layers:
   - Default
   - TransparentFX

@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
 
    public int playerScore;
+   public GameObject gameOverScreen;
    [SerializeField]
    TextMeshProUGUI scoreText;
 
     
-   [ContextMenu("Increase Score")] 
+   [ContextMenu("Increase Score")] // Increase the score
    public void addScore()
    {
 
@@ -20,6 +22,10 @@ public class LogicScript : MonoBehaviour
 
    }
 
+   public void restartGame() // restart the game
+   {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+   }
 
-
+      
 }
