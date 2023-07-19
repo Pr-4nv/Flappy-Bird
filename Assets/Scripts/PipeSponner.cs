@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeSponner : MonoBehaviour
@@ -22,6 +20,7 @@ public class PipeSponner : MonoBehaviour
         {
              timer = timer + Time.deltaTime;
         }else
+        
         {
             spawnPipe();
             timer = 0;
