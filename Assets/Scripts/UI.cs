@@ -9,4 +9,16 @@ public class UI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void ReturnHome()
+
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnApplicationQuit()
+    {
+        Debug.Log("Quitting");
+        Application.Quit();
+    }
 }

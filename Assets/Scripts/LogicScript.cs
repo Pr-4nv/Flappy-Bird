@@ -20,7 +20,7 @@ public class LogicScript : MonoBehaviour
    [SerializeField]
     TextMeshProUGUI highScore;
     [SerializeField]
-    TextMeshProUGUI ScoreTxt;
+    TextMeshProUGUI ScoreTxtgameOver;
 
 
     [ContextMenu("Increase Score")] 
@@ -34,7 +34,7 @@ public class LogicScript : MonoBehaviour
 
       playerScore = playerScore + 1;
       scoreText.text = playerScore.ToString();
-        ScoreTxt.text = playerScore.ToString();
+      ScoreTxtgameOver.text = playerScore.ToString();
 
         if(playerScore > PlayerPrefs.GetInt("Highscore", 0))
         {
