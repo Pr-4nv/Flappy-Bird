@@ -2,30 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
 
-   public int playerScore;
+    public int playerScore;
+
+    public AudioSource audioSource;
+    public AudioClip Pass;
+
    public GameObject gameOverScreen;
+
    [SerializeField]
    TextMeshProUGUI scoreText;
+   [SerializeField]
+    TextMeshProUGUI highScore;
+    [SerializeField]
+    TextMeshProUGUI ScoreTxt;
 
-    
-   [ContextMenu("Increase Score")] // Increase the score
-   public void addScore()
+
+    [ContextMenu("Increase Score")] 
+
+    private void Start()
+    {
+        highScore.text = PlayerPrefs.GetInt("Highscore",0).ToString();
+    }
+    public void addScore()
    {
 
       playerScore = playerScore + 1;
       scoreText.text = playerScore.ToString();
+        ScoreTxt.text = playerScore.ToString();
+
+        if(playerScore > PlayerPrefs.GetInt("Highscore", 0))
+        {
+            PlayerPrefs.SetInt("Highscore", playerScore);
+            highScore.text = playerScore.ToString();
+        }
 
    }
 
-   public void restartGame() // restart the game
+    public void ResteHighscore()
+    {
+        PlayerPrefs.DeleteKey("Highscore");
+    }
+
+   public void restartGame() 
    {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
    }
+
+    public void playPass()
+    {
+        if (audioSource != null && Pass != null)
+        {
+            
+            audioSource.PlayOneShot(Pass);
+        }
+    }
 
       
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NEW SCENE.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main_Menu.unity
+    guid: ad94cc2d97e4bda4eb3ff9c0cdc8fe41
+  - enabled: 1
+    path: Assets/Scenes/Night_Hard.unity
+    guid: 3613bd28bd929614c948fbe73cc682a4
   m_configObjects: {}

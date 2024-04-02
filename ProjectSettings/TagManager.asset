@@ -8,6 +8,9 @@ TagManager:
   - Tree
   - Bird
   - GameOver
+  - Ground
+  - Middle
+  - CoinLogic
   layers:
   - Default
   - TransparentFX
@@ -44,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Vfx
+    uniqueID: 3850319461
+    locked: 0
+  - name: Foreground
+    uniqueID: 1399239161
     locked: 0
