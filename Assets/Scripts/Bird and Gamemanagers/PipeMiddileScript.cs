@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using NerdStudios.CustomHeader;
 public class PipeMiddileScript : MonoBehaviour
 {
-     public LogicScript logic;
-   
+
+    [CustomHeader("PipeMiddileScript", HeaderColor.Blue, 16)]
+    public LogicScript logic;
 
    
     void Start()
@@ -13,20 +14,35 @@ public class PipeMiddileScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        logic.addScore();
-        if (logic.audioSource != null && logic.Pass != null)
+        if (collision.CompareTag("Bird"))
         {
-            Debug.Log("bird Pass");
-            logic.playPass();
+            logic.addScore();
+            logic.AddCoin();
+
+            if (logic.audioSource != null && logic.Pass != null)
+            {
+                Debug.Log("bird Pass");
+                logic.playPass();
+            }
+
+            // Find the coin object within the pipe prefab by tag and destroy it
+            Transform parentTransform = transform.parent;
+            if (parentTransform != null)
+            {
+                // Search for all child objects with the Coin tag
+                foreach (Transform child in parentTransform)
+                {
+                    if (child.CompareTag("Coin"))
+                    {
+                        Destroy(child.gameObject);
+                        break; // Exit the loop after destroying the coin
+                    }
+                }
+            }
         }
-
-
     }
+
 }

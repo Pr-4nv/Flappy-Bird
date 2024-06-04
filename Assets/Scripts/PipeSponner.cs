@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using NerdStudios.CustomHeader;
 public class PipeSponner : MonoBehaviour
 {
+    [CustomHeader("PipeSponner", HeaderColor.Blue, 16)]
     public GameObject pipe;
     public float spawnRate = 2;
     private float timer =0;

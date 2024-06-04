@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Middle
   - CoinLogic
+  - Coin
   layers:
   - Default
   - TransparentFX

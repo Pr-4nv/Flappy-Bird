@@ -1,8 +1,10 @@
+using NerdStudios.CustomHeader;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
+    [CustomHeader("CollisionManager", HeaderColor.Blue, 16)]
     [Header("General Variables")]
     public GameObject GameOverScreen;
     public GameObject dynamicTxt;
@@ -33,8 +35,6 @@ public class CollisionManager : MonoBehaviour
         GameOverScreen.SetActive(false);
         isGameOver = false;
         PlayGameMusic();
-       
-       
     }
 
     
@@ -45,6 +45,7 @@ public class CollisionManager : MonoBehaviour
         if (audioSource != null &&  Pass != null && collision.gameObject.CompareTag("Middle"))
         {
             audioSource.PlayOneShot(Pass);
+
         }
         if (collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Ground"))
         {
@@ -80,7 +81,7 @@ public class CollisionManager : MonoBehaviour
 
     
 
-    //Game Music Funtion
+    
     private void PlayGameMusic()
     {
         if (audioSource != null && gameMusic != null)
@@ -101,10 +102,10 @@ public class CollisionManager : MonoBehaviour
         }
     }*/
 
-    // Function to instantiate the VFX Prefab
+    
     private void InstantiateVFX(Vector2 position)
     {
         GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
-        Destroy(vfxInstance, 3f); // Destroy the VFX after 3 seconds (adjust as needed)
+        Destroy(vfxInstance, 3f); 
     }
 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NerdStudios.CustomHeader;
 
 public class BirdScript : MonoBehaviour
 {
+
+[CustomHeader("BirdScript", HeaderColor.Blue, 16)]
 
 public Rigidbody2D rb;
 public float upSpeed;
